@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+
+<div class="container">
+    <table is="grid" :titles="titles" :rows="rows" @insert="insert" @update="update" @remove="remove"></table>
+    <div is="page" :total="total" @change="change"></div>
+
+    <div is="modal">
+        <h4 class="modal-title" slot="modal-title" v-text="title" :class="titleClass"></h4>
+        <form>
+            <input type="hidden" v-model="row.id">
+            <div class="input-group">
+                <span class="input-group-addon">名称</span>
+                <input type="text" class="form-control" placeholder="名称" v-model="row.name">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">别名</span>
+                <input type="text" class="form-control" placeholder="别名" v-model="row.alias">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">size</span>
+                <input type="text" class="form-control" placeholder="规格" v-model="row.size">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">unit</span>
+                <input type="text" class="form-control" placeholder="单位" v-model="row.unit">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">price</span>
+                <input type="text" class="form-control" placeholder="单价" v-model="row.price">
+            </div>
+        </form>
+
+        <div class="modal-footer" slot="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary" @click="save">保存</button>
+        </div>
+    </div>
+</div>
+
+<script src="lib/vue.js"></script>
+<script src="lib/axios.js"></script>
+<script src="lib/jquery.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="lib/zsy/page.js"></script>
+<script src="lib/zsy/grid.js"></script>
+<script src="lib/zsy/modal.js"></script>
+
+<script src="js/index.js"></script>
+</body>
+</html>
